@@ -1,6 +1,5 @@
-# <center>AUTO JSON</center>
-**<center>其他语言版本: [[English](README.md)] [[中文](README_zh.md)]</center>**
-***
+# AUTO JSON
+**[[English](README.md)] [[中文](README_zh.md)]**
 
 基于 [Jsoncpp](https://github.com/open-source-parsers/jsoncpp) 实现的C++序列化&反序列化库。进行简单的**类继承**和**变量-字段映射**，
 取代之前繁琐的序列化/反序列化代码逻辑编写。
@@ -46,7 +45,7 @@ AutoJson::Marshal(json, obj);
 AutoJson::Unmarshal(json, obj);
 ```
 
-##单元测试
+## 单元测试
 支持使用 [GoogleTest](https://github.com/google/googletest?tab=readme-ov-file#welcome-to-googletest-googles-c-test-framework) 框架进行单元测试，
 直接将`test_auto_json.cpp`文件放到您的单元测试文件目录下即可。GoogleTest详细使用方法参考[GoogleTest用户手册](https://google.github.io/googletest/) 。
 
