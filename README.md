@@ -1,30 +1,29 @@
 # AUTO JSON
-**[[English](README.md)] [[中文](README_zh.md)]**
+**[[English](README.md)] [[中文](README_CN.md)]**
 
-基于 [Jsoncpp](https://github.com/open-source-parsers/jsoncpp) 实现的C++序列化&反序列化库。进行简单的**类继承**和**变量-字段映射**，
-取代之前繁琐的序列化/反序列化代码逻辑编写。
+A C++ serialization and deserialization library based on [Jsoncpp](https://github.com/open-source-parsers/jsoncpp), replace the previously cumbersome serialization/deserialization code with class inheritance and variable-field mapping.
 
-## 依赖
-* [Jsoncpp](https://github.com/open-source-parsers/jsoncpp) 
+## Dependencies
+* [Jsoncpp](https://github.com/open-source-parsers/jsoncpp)
 * C++ 11
-* [GoogleTest](https://github.com/google/googletest?tab=readme-ov-file#welcome-to-googletest-googles-c-test-framework) (如果需要测试)
+* [GoogleTest](https://github.com/google/googletest?tab=readme-ov-file#welcome-to-googletest-googles-c-test-framework) (if your project need unit test)
 
-## 使用方法
+## Quick Start
 
-### 准备工作
-1. 根据官方文档安装Jsoncpp库(已安装则忽略)
-2. 下载auto_json库
+### Prepare
+1. Install the Jsoncpp library according to the official documentation (ignore if already installed).
+2. Download Auto_Json library.
 ```shell
 git clone  https://github.com/DerrickHsu97/auto_json.git
 ```
-3. 将auto_json.h加入到您的工程中，并引用
+3. Include `auto_json.h` in your project.
 ```c++
 #include "auto_json.h"
 ```
 
-### 使用AUTO_JSON
+### Using AUTO_JSON
 <a id="demo"></a>
-1. 使您的类/结构体继承`AutoJsonHelper`类，并重写`SetJsonMapping()`方法(SetJsonMapping()用与指定变量与字段的关联关系)
+1. Make your data class/struct inherit from the `AutoJsonHelper` class and override the `SetJsonMapping()` method (used to specify the association between variables and fields).
 ```c++
 struct Demo {
     int id;
@@ -36,25 +35,24 @@ struct Demo {
     }
 };
 ```
-2. 进行序列化/反序列化
+2. Serialize/Deserialize.
 ```c++
-// 序列化'obj'输出到'json'
+// serialize 'obj' into 'json'
 AutoJson::Marshal(json, obj);
 
-// 反序列化'json'输出到'obj'
+// deserialize 'json' into 'obj'
 AutoJson::Unmarshal(json, obj);
 ```
 
-## 单元测试
-支持使用 [GoogleTest](https://github.com/google/googletest?tab=readme-ov-file#welcome-to-googletest-googles-c-test-framework) 框架进行单元测试，
-直接将`test_auto_json.cpp`文件放到您的单元测试文件目录下即可。GoogleTest详细使用方法参考[GoogleTest用户手册](https://google.github.io/googletest/) 。
+## Unit Test (if need)
+Support unit testing with [GoogleTest](https://github.com/google/googletest?tab=readme-ov-file#welcome-to-googletest-googles-c-test-framework) framework, simply place the `test_auto_json.cpp` file in your unit test directory. For detailed instructions on using GoogleTest, please refer to [GoogleTest User Guide](https://google.github.io/googletest/).
 
 ## DEMO
-沿用[使用AUTO_JSON](#demo)章节中的结构体`Demo`进行示例展示
+Using the structure `Demo` from the [Using AUTO_JSON](#demo) section as an example.
 
-### 序列化
+### Serialize
 
-#### 代码
+#### Code
 ```c++
 #include <iostream>
 #include "auto_json.h"
@@ -72,14 +70,14 @@ int main() {
 }
 ```
 
-#### 结果
+#### Output
 ```json
 {"demo_id":20240325,"name":"auto_json"}
 ```
 
-### 反序列化
+### Deserialize
 
-#### 代码
+#### Code
 ```c++
 #include <iostream>
 #include "auto_json.h"
@@ -95,7 +93,7 @@ int main() {
 }
 ```
 
-#### 结果
+#### Output
 ```text
 id:20240325
 name:auto_json
